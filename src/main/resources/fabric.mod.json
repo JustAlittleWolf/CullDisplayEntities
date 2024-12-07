@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "culldisplayentities",
+  "version": "${version}",
+  "name": "CullDisplayEntities",
+  "description": "Calculates a visibility-boundingbox for displayentities, so they can be culled.",
+  "authors": [],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/culldisplayentities/icon.png",
+  "environment": "client",
+  "entrypoints": {},
+  "mixins": [
+    "culldisplayentities.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": ">=1.21 <=1.21.1"
+  }
+}
