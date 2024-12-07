@@ -19,6 +19,9 @@ public abstract class DisplayEntityMixin {
     @Shadow
     protected abstract float getDisplayHeight();
 
+    @Shadow
+    private boolean tooSmallToRender = true;
+
     @WrapMethod(method = "updateVisibilityBoundingBox")
     private void modifyBoundingBox(Operation<Void> original) {
         DisplayEntity displayEntity = ((DisplayEntity) (Object) this);
@@ -30,7 +33,8 @@ public abstract class DisplayEntityMixin {
             return;
         }
 
-        displayEntity.ignoreCameraFrustum = false;
+
+        this.tooSmallToRender = false;
         this.visibilityBoundingBox = DisplayEntityBoundingBoxCalculator.getWithTransform(
                 displayEntity,
                 DisplayEntityAccessor.getTransformation(displayEntity.getDataTracker()).getMatrix()
