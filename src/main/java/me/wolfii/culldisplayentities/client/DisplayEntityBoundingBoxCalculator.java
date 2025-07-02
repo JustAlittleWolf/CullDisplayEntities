@@ -2,7 +2,7 @@ package me.wolfii.culldisplayentities.client;
 
 import net.minecraft.entity.decoration.DisplayEntity;
 import net.minecraft.util.math.Box;
-import org.joml.Matrix4f;
+import org.joml.Matrix4fc;
 import org.joml.Vector3f;
 
 public class DisplayEntityBoundingBoxCalculator {
@@ -20,7 +20,7 @@ public class DisplayEntityBoundingBoxCalculator {
             new Vector3f(modelSize + margin, modelSize + margin, modelSize + margin)
     };
 
-    public static Box getWithTransform(DisplayEntity displayEntity, Matrix4f transform) {
+    public static Box getWithTransform(DisplayEntity displayEntity, Matrix4fc transform) {
         Vector3f min = new Vector3f();
         Vector3f max = new Vector3f();
         Vector3f transformed = new Vector3f();
