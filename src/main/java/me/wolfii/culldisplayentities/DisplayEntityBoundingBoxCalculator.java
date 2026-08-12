@@ -1,4 +1,4 @@
-package me.wolfii.culldisplayentities.client;
+package me.wolfii.culldisplayentities;
 
 import net.minecraft.entity.decoration.DisplayEntity;
 import net.minecraft.util.math.Box;

@@ -2,7 +2,7 @@ package me.wolfii.culldisplayentities.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import me.wolfii.culldisplayentities.client.DisplayEntityBoundingBoxCalculator;
+import me.wolfii.culldisplayentities.DisplayEntityBoundingBoxCalculator;
 import net.minecraft.entity.decoration.DisplayEntity;
 import net.minecraft.util.math.Box;
 import org.spongepowered.asm.mixin.Mixin;
