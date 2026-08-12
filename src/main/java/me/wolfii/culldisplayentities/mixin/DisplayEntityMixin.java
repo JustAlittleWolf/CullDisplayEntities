@@ -3,41 +3,40 @@ package me.wolfii.culldisplayentities.mixin;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import me.wolfii.culldisplayentities.DisplayEntityBoundingBoxCalculator;
-import net.minecraft.entity.decoration.DisplayEntity;
-import net.minecraft.util.math.Box;
+import net.minecraft.world.entity.Display;
+import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(DisplayEntity.class)
+@Mixin(Display.class)
 public abstract class DisplayEntityMixin {
     @Shadow
-    private Box visibilityBoundingBox;
+    private AABB cullingBoundingBox;
 
     @Shadow
-    protected abstract float getDisplayWidth();
+    protected abstract float getWidth();
 
     @Shadow
-    protected abstract float getDisplayHeight();
+    protected abstract float getHeight();
 
     @Shadow
-    private boolean tooSmallToRender = true;
+    private boolean noCulling;
 
-    @WrapMethod(method = "updateVisibilityBoundingBox")
+    @WrapMethod(method = "updateCulling")
     private void modifyBoundingBox(Operation<Void> original) {
-        DisplayEntity displayEntity = ((DisplayEntity) (Object) this);
+        Display displayEntity = ((Display) (Object) this);
 
-        float width = this.getDisplayWidth();
-        float height = this.getDisplayHeight();
+        float width = this.getWidth();
+        float height = this.getHeight();
         if (width != 0 && height != 0) {
             original.call();
             return;
         }
 
-
-        this.tooSmallToRender = false;
-        this.visibilityBoundingBox = DisplayEntityBoundingBoxCalculator.getWithTransform(
-                displayEntity,
-                DisplayEntityAccessor.getTransformation(displayEntity.getDataTracker()).getMatrix()
+        this.noCulling = false;
+        this.cullingBoundingBox = DisplayEntityBoundingBoxCalculator.getWithTransform(
+            displayEntity,
+            DisplayEntityAccessor.createTransformation(displayEntity.getEntityData()).getMatrix()
         );
     }
 }

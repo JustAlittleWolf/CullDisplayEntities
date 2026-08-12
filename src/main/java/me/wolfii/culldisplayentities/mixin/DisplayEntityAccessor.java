@@ -1,15 +1,15 @@
 package me.wolfii.culldisplayentities.mixin;
 
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.decoration.DisplayEntity;
-import net.minecraft.util.math.AffineTransformation;
+import com.mojang.math.Transformation;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.world.entity.Display;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(DisplayEntity.class)
+@Mixin(Display.class)
 public interface DisplayEntityAccessor {
-    @Invoker("getTransformation")
-    static AffineTransformation getTransformation(DataTracker dataTracker) {
+    @Invoker("createTransformation")
+    static Transformation createTransformation(SynchedEntityData synchedEntityData) {
         throw new UnsupportedOperationException();
     }
 }
