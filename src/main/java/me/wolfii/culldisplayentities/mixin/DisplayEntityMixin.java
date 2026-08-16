@@ -36,7 +36,7 @@ public abstract class DisplayEntityMixin {
         this.noCulling = false;
         this.cullingBoundingBox = DisplayEntityBoundingBoxCalculator.getWithTransform(
             displayEntity,
-            DisplayEntityAccessor.createTransformation(displayEntity.getEntityData()).getMatrix()
+            DisplayEntityAccessor.invokeCreateTransformation(displayEntity.getEntityData()).getMatrix()
         );
     }
 }

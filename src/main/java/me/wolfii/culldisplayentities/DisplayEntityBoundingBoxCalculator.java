@@ -7,7 +7,7 @@ import org.joml.Vector3f;
 
 public class DisplayEntityBoundingBoxCalculator {
     private static final float modelSize = 1F;
-    private static final float margin = modelSize / 2F;
+    private static final float margin = 1F;
 
     private static final Vector3f[] corners = new Vector3f[]{
         new Vector3f(-margin, -margin, -margin),

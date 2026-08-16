@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(Display.class)
 public interface DisplayEntityAccessor {
     @Invoker("createTransformation")
-    static Transformation createTransformation(SynchedEntityData synchedEntityData) {
+    static Transformation invokeCreateTransformation(SynchedEntityData synchedEntityData) {
         throw new UnsupportedOperationException();
     }
 }
