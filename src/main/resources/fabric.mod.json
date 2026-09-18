@@ -2,12 +2,15 @@
   "schemaVersion": 1,
   "id": "culldisplayentities",
   "version": "${version}",
-  "name": "CullDisplayEntities",
+  "name": "Cull Display Entities",
   "description": "Calculates a visibility-boundingbox for displayentities, so they can be culled, improving performance.",
   "authors": [
     "JustAlittleWolf"
   ],
-  "contact": {},
+  "contact": {
+    "issues": "https://github.com/JustAlittleWolf/CullDisplayEntities/issues/",
+    "sources": "https://github.com/JustAlittleWolf/CullDisplayEntities/"
+  },
   "license": "MIT",
   "icon": "assets/culldisplayentities/icon.png",
   "environment": "client",
@@ -17,7 +20,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.19.0",
-    "minecraft": "~${minecraft_version}",
+    "minecraft": ">=${minecraft_version}",
     "java": ">=25"
   }
 }
